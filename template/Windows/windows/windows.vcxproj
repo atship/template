@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5A4F95A1-2556-4E8B-936E-0FF771D781EF}</ProjectGuid>
+    <RootNamespace>windows</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryWPath>E:\gfx\template\Windows\x86;$(LibraryWPath)</LibraryWPath>
+    <ExecutablePath>E:\gfx\template\Windows\x86;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryWPath>E:\gfx\template\Windows\x86-64;$(LibraryWPath)</LibraryWPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>%KHRONOS_HEADERS%;..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\lib\x86;%OPENGLES_LIBDIR%;..\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;libEGL.lib;libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\gfx\common;E:\gfx\template;..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>E:\gfx\template\Windows\lib\x64;E:\gfx\template\Windows\x86-64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;libEGL.lib;libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\common\audio.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\bChunk.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\bDNA.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\bFile.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btActivatingCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btAlignedAllocator.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btAxisSweep3.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBox2dBox2dCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBox2dShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBoxBoxCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBoxBoxDetector.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBoxShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBroadphaseProxy.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBulletFile.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBulletWorldImporter.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btBvhTriangleMeshShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCapsuleShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCollisionDispatcher.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCollisionObject.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCollisionShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCollisionWorld.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCompoundCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCompoundShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConcaveShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConeShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConeTwistConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btContactConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btContactProcessing.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btContinuousConvexCollision.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btContinuousDynamicsWorld.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvex2dConvex2dAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvex2dShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexCast.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexConcaveCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexConvexAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexHull.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexHullComputer.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexHullShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexInternalShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexPlaneCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexPointCloudShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexPolyhedron.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btConvexTriangleMeshShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btCylinderShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDbvt.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDbvtBroadphase.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDefaultCollisionConfiguration.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDefaultSoftBodySolver.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDiscreteDynamicsWorld.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btDispatcher.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btEmptyCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btEmptyShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGeneric6DofConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGeneric6DofSpringConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGenericPoolAllocator.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGeometryUtil.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGhostObject.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGImpactBvh.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGImpactCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGImpactQuantizedBvh.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGImpactShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGjkConvexCast.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGjkEpa2.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGjkEpaPenetrationDepthSolver.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btGjkPairDetector.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btHeightfieldTerrainShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btHinge2Constraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btHingeConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btInternalEdgeUtility.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btKinematicCharacterController.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btManifoldResult.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btMinkowskiPenetrationDepthSolver.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btMinkowskiSumShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btMultimaterialTriangleMeshShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btMultiSapBroadphase.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btMultiSphereShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btOptimizedBvh.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btOverlappingPairCache.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btPersistentManifold.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btPoint2PointConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btPolyhedralContactClipping.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btPolyhedralConvexShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btQuantizedBvh.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btQuickprof.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btRaycastCallback.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btRaycastVehicle.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btRigidBody.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btScaledBvhTriangleMeshShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSequentialImpulseConstraintSolver.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSerializer.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btShapeHull.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSimpleBroadphase.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSimpleDynamicsWorld.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSimulationIslandManager.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSliderConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftBody.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftBodyConcaveCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftBodyHelpers.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftBodyRigidBodyCollisionConfiguration.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftRigidCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftRigidDynamicsWorld.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSoftSoftCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSolve2LinearConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSphereBoxCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSphereShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSphereSphereCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSphereTriangleCollisionAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btStaticPlaneShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btStridingMeshInterface.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btSubSimplexConvexCast.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTetrahedronShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleBuffer.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleCallback.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleIndexVertexArray.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleIndexVertexMaterialArray.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleMesh.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleMeshShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTriangleShapeEx.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btTypedConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btUniformScalingShape.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btUnionFind.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btUniversalConstraint.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btVoronoiSimplexSolver.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\btWheelInfo.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\gim_box_set.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\gim_contact.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\gim_memory.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\gim_tri_collision.cpp" />
+    <ClCompile Include="..\..\..\common\bullet\SphereTriangleDetector.cpp" />
+    <ClCompile Include="..\..\..\common\detour\DetourAlloc.cpp" />
+    <ClCompile Include="..\..\..\common\detour\DetourCommon.cpp" />
+    <ClCompile Include="..\..\..\common\detour\DetourNavMesh.cpp" />
+    <ClCompile Include="..\..\..\common\detour\DetourNavMeshBuilder.cpp" />
+    <ClCompile Include="..\..\..\common\detour\DetourNode.cpp" />
+    <ClCompile Include="..\..\..\common\font.cpp" />
+    <ClCompile Include="..\..\..\common\gfx.cpp" />
+    <ClCompile Include="..\..\..\common\light.cpp" />
+    <ClCompile Include="..\..\..\common\matrix.cpp" />
+    <ClCompile Include="..\..\..\common\md5.cpp" />
+    <ClCompile Include="..\..\..\common\memory.cpp" />
+    <ClCompile Include="..\..\..\common\navigation.cpp" />
+    <ClCompile Include="..\..\..\common\nvtristrip\NvTriStrip.cpp" />
+    <ClCompile Include="..\..\..\common\nvtristrip\NvTriStripObjects.cpp" />
+    <ClCompile Include="..\..\..\common\nvtristrip\VertexCache.cpp" />
+    <ClCompile Include="..\..\..\common\obj.cpp" />
+    <ClCompile Include="..\..\..\common\openal\alAuxEffectSlot.c" />
+    <ClCompile Include="..\..\..\common\openal\alBuffer.c" />
+    <ClCompile Include="..\..\..\common\openal\ALc.c" />
+    <ClCompile Include="..\..\..\common\openal\alcConfig.c" />
+    <ClCompile Include="..\..\..\common\openal\alcEcho.c" />
+    <ClCompile Include="..\..\..\common\openal\alcModulator.c" />
+    <ClCompile Include="..\..\..\common\openal\alcReverb.c" />
+    <ClCompile Include="..\..\..\common\openal\alcRing.c" />
+    <ClCompile Include="..\..\..\common\openal\alcThread.c" />
+    <ClCompile Include="..\..\..\common\openal\alDatabuffer.c" />
+    <ClCompile Include="..\..\..\common\openal\alEffect.c" />
+    <ClCompile Include="..\..\..\common\openal\alError.c" />
+    <ClCompile Include="..\..\..\common\openal\alExtension.c" />
+    <ClCompile Include="..\..\..\common\openal\alFilter.c" />
+    <ClCompile Include="..\..\..\common\openal\alListener.c" />
+    <ClCompile Include="..\..\..\common\openal\alSource.c" />
+    <ClCompile Include="..\..\..\common\openal\alState.c" />
+    <ClCompile Include="..\..\..\common\openal\alThunk.c" />
+    <ClCompile Include="..\..\..\common\openal\ALu.c" />
+    <ClCompile Include="..\..\..\common\openal\android.c" />
+    <ClCompile Include="..\..\..\common\openal\bs2b.c" />
+    <ClCompile Include="..\..\..\common\openal\null.c" />
+    <ClCompile Include="..\..\..\common\png\png.c" />
+    <ClCompile Include="..\..\..\common\png\pngerror.c" />
+    <ClCompile Include="..\..\..\common\png\pnggccrd.c" />
+    <ClCompile Include="..\..\..\common\png\pngget.c" />
+    <ClCompile Include="..\..\..\common\png\pngmem.c" />
+    <ClCompile Include="..\..\..\common\png\pngpread.c" />
+    <ClCompile Include="..\..\..\common\png\pngread.c" />
+    <ClCompile Include="..\..\..\common\png\pngrio.c" />
+    <ClCompile Include="..\..\..\common\png\pngrtran.c" />
+    <ClCompile Include="..\..\..\common\png\pngrutil.c" />
+    <ClCompile Include="..\..\..\common\png\pngset.c" />
+    <ClCompile Include="..\..\..\common\png\pngtrans.c" />
+    <ClCompile Include="..\..\..\common\png\pngvcrd.c" />
+    <ClCompile Include="..\..\..\common\png\pngwio.c" />
+    <ClCompile Include="..\..\..\common\png\pngwrite.c" />
+    <ClCompile Include="..\..\..\common\png\pngwtran.c" />
+    <ClCompile Include="..\..\..\common\png\pngwutil.c" />
+    <ClCompile Include="..\..\..\common\program.cpp" />
+    <ClCompile Include="..\..\..\common\recast\Recast.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastAlloc.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastArea.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastContour.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastFilter.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastLog.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastMesh.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastMeshDetail.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastRasterization.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastRegion.cpp" />
+    <ClCompile Include="..\..\..\common\recast\RecastTimer.cpp" />
+    <ClCompile Include="..\..\..\common\shader.cpp" />
+    <ClCompile Include="..\..\..\common\sound.cpp" />
+    <ClCompile Include="..\..\..\common\texture.cpp" />
+    <ClCompile Include="..\..\..\common\thread.cpp" />
+    <ClCompile Include="..\..\..\common\ttf\stb_truetype.cpp" />
+    <ClCompile Include="..\..\..\common\utils.cpp" />
+    <ClCompile Include="..\..\..\common\vector.cpp" />
+    <ClCompile Include="..\..\..\common\vorbis\analysis.c" />
+    <ClCompile Include="..\..\..\common\vorbis\bitrate.c" />
+    <ClCompile Include="..\..\..\common\vorbis\bitwise.c" />
+    <ClCompile Include="..\..\..\common\vorbis\block.c" />
+    <ClCompile Include="..\..\..\common\vorbis\codebook.c" />
+    <ClCompile Include="..\..\..\common\vorbis\envelope.c" />
+    <ClCompile Include="..\..\..\common\vorbis\floor0.c" />
+    <ClCompile Include="..\..\..\common\vorbis\floor1.c" />
+    <ClCompile Include="..\..\..\common\vorbis\framing.c" />
+    <ClCompile Include="..\..\..\common\vorbis\info.c" />
+    <ClCompile Include="..\..\..\common\vorbis\lookup.c" />
+    <ClCompile Include="..\..\..\common\vorbis\lpc.c" />
+    <ClCompile Include="..\..\..\common\vorbis\lsp.c" />
+    <ClCompile Include="..\..\..\common\vorbis\mapping0.c" />
+    <ClCompile Include="..\..\..\common\vorbis\mdct.c" />
+    <ClCompile Include="..\..\..\common\vorbis\psy.c" />
+    <ClCompile Include="..\..\..\common\vorbis\registry.c" />
+    <ClCompile Include="..\..\..\common\vorbis\res0.c" />
+    <ClCompile Include="..\..\..\common\vorbis\sharedbook.c" />
+    <ClCompile Include="..\..\..\common\vorbis\smallft.c" />
+    <ClCompile Include="..\..\..\common\vorbis\synthesis.c" />
+    <ClCompile Include="..\..\..\common\vorbis\vorbisfile.c" />
+    <ClCompile Include="..\..\..\common\vorbis\window.c" />
+    <ClCompile Include="..\..\..\common\zlib\adler32.c" />
+    <ClCompile Include="..\..\..\common\zlib\compress.c" />
+    <ClCompile Include="..\..\..\common\zlib\crc32.c" />
+    <ClCompile Include="..\..\..\common\zlib\deflate.c" />
+    <ClCompile Include="..\..\..\common\zlib\gzio.c" />
+    <ClCompile Include="..\..\..\common\zlib\infback.c" />
+    <ClCompile Include="..\..\..\common\zlib\inffast.c" />
+    <ClCompile Include="..\..\..\common\zlib\inflate.c" />
+    <ClCompile Include="..\..\..\common\zlib\inftrees.c" />
+    <ClCompile Include="..\..\..\common\zlib\ioapi.c" />
+    <ClCompile Include="..\..\..\common\zlib\trees.c" />
+    <ClCompile Include="..\..\..\common\zlib\uncompr.c" />
+    <ClCompile Include="..\..\..\common\zlib\unzip.c" />
+    <ClCompile Include="..\..\..\common\zlib\zutil.c" />
+    <ClCompile Include="..\..\templateApp.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\nativewin_win32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\common\audio.h" />
+    <ClInclude Include="..\..\..\common\bullet\bChunk.h" />
+    <ClInclude Include="..\..\..\common\bullet\bCommon.h" />
+    <ClInclude Include="..\..\..\common\bullet\bDefines.h" />
+    <ClInclude Include="..\..\..\common\bullet\bDNA.h" />
+    <ClInclude Include="..\..\..\common\bullet\bFile.h" />
+    <ClInclude Include="..\..\..\common\bullet\btAabbUtil2.h" />
+    <ClInclude Include="..\..\..\common\bullet\btActionInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btActivatingCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btAlignedAllocator.h" />
+    <ClInclude Include="..\..\..\common\bullet\btAlignedObjectArray.h" />
+    <ClInclude Include="..\..\..\common\bullet\btAxisSweep3.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBox2dBox2dCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBox2dShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBoxBoxCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBoxBoxDetector.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBoxCollision.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBoxShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBroadphaseInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBroadphaseProxy.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBulletCollisionCommon.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBulletDynamicsCommon.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBulletFile.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBulletWorldImporter.h" />
+    <ClInclude Include="..\..\..\common\bullet\btBvhTriangleMeshShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCapsuleShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCharacterControllerInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btClipPolygon.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionConfiguration.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionCreateFunc.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionDispatcher.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionMargin.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionObject.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCollisionWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCompoundCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCompoundShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConcaveShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConeShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConeTwistConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConstraintSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btContactConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btContactProcessing.h" />
+    <ClInclude Include="..\..\..\common\bullet\btContactSolverInfo.h" />
+    <ClInclude Include="..\..\..\common\bullet\btContinuousConvexCollision.h" />
+    <ClInclude Include="..\..\..\common\bullet\btContinuousDynamicsWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvex2dConvex2dAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvex2dShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexCast.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexConvexAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexHull.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexHullComputer.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexHullShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexInternalShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexPenetrationDepthSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexPlaneCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexPointCloudShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexPolyhedron.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btConvexTriangleMeshShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btCylinderShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDbvt.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDbvtBroadphase.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDefaultCollisionConfiguration.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDefaultMotionState.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDefaultSoftBodySolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDiscreteCollisionDetectorInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDiscreteDynamicsWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDispatcher.h" />
+    <ClInclude Include="..\..\..\common\bullet\btDynamicsWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btEmptyCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btEmptyShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGeneric6DofConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGeneric6DofSpringConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGenericPoolAllocator.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGeometryOperations.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGeometryUtil.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGhostObject.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGImpactBvh.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGImpactCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGImpactMassUtil.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGImpactQuantizedBvh.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGImpactShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGjkConvexCast.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGjkEpa2.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGjkEpaPenetrationDepthSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btGjkPairDetector.h" />
+    <ClInclude Include="..\..\..\common\bullet\btHashMap.h" />
+    <ClInclude Include="..\..\..\common\bullet\btHeightfieldTerrainShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btHinge2Constraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btHingeConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btIDebugDraw.h" />
+    <ClInclude Include="..\..\..\common\bullet\btInternalEdgeUtility.h" />
+    <ClInclude Include="..\..\..\common\bullet\btJacobianEntry.h" />
+    <ClInclude Include="..\..\..\common\bullet\btKinematicCharacterController.h" />
+    <ClInclude Include="..\..\..\common\bullet\btList.h" />
+    <ClInclude Include="..\..\..\common\bullet\btManifoldPoint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btManifoldResult.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMaterial.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMatrix3x3.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMinkowskiPenetrationDepthSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMinkowskiSumShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMinMax.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMotionState.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMultimaterialTriangleMeshShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMultiSapBroadphase.h" />
+    <ClInclude Include="..\..\..\common\bullet\btMultiSphereShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btOptimizedBvh.h" />
+    <ClInclude Include="..\..\..\common\bullet\btOverlappingPairCache.h" />
+    <ClInclude Include="..\..\..\common\bullet\btOverlappingPairCallback.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPersistentManifold.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPoint2PointConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPointCollector.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPolyhedralContactClipping.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPolyhedralConvexShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btPoolAllocator.h" />
+    <ClInclude Include="..\..\..\common\bullet\btQuadWord.h" />
+    <ClInclude Include="..\..\..\common\bullet\btQuantization.h" />
+    <ClInclude Include="..\..\..\common\bullet\btQuantizedBvh.h" />
+    <ClInclude Include="..\..\..\common\bullet\btQuaternion.h" />
+    <ClInclude Include="..\..\..\common\bullet\btQuickprof.h" />
+    <ClInclude Include="..\..\..\common\bullet\btRandom.h" />
+    <ClInclude Include="..\..\..\common\bullet\btRaycastCallback.h" />
+    <ClInclude Include="..\..\..\common\bullet\btRaycastVehicle.h" />
+    <ClInclude Include="..\..\..\common\bullet\btRigidBody.h" />
+    <ClInclude Include="..\..\..\common\bullet\btScalar.h" />
+    <ClInclude Include="..\..\..\common\bullet\btScaledBvhTriangleMeshShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSequentialImpulseConstraintSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSerializer.h" />
+    <ClInclude Include="..\..\..\common\bullet\btShapeHull.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSimpleBroadphase.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSimpleDynamicsWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSimplexSolverInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSimulationIslandManager.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSliderConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBody.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodyConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodyData.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodyHelpers.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodyInternals.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodyRigidBodyCollisionConfiguration.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodySolvers.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftBodySolverVertexBuffer.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftRigidCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftRigidDynamicsWorld.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSoftSoftCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSolve2LinearConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSolverBody.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSolverConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSparseSDF.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSphereBoxCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSphereShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSphereSphereCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSphereTriangleCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\..\common\bullet\btStackAlloc.h" />
+    <ClInclude Include="..\..\..\common\bullet\btStaticPlaneShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btStridingMeshInterface.h" />
+    <ClInclude Include="..\..\..\common\bullet\btSubSimplexConvexCast.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTetrahedronShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTransform.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTransformUtil.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleBuffer.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleCallback.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleIndexVertexArray.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleIndexVertexMaterialArray.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleInfoMap.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleMesh.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleMeshShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTriangleShapeEx.h" />
+    <ClInclude Include="..\..\..\common\bullet\btTypedConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btUniformScalingShape.h" />
+    <ClInclude Include="..\..\..\common\bullet\btUnionFind.h" />
+    <ClInclude Include="..\..\..\common\bullet\btUniversalConstraint.h" />
+    <ClInclude Include="..\..\..\common\bullet\btVector3.h" />
+    <ClInclude Include="..\..\..\common\bullet\btVehicleRaycaster.h" />
+    <ClInclude Include="..\..\..\common\bullet\btVoronoiSimplexSolver.h" />
+    <ClInclude Include="..\..\..\common\bullet\btWheelInfo.h" />
+    <ClInclude Include="..\..\..\common\bullet\bullet.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_array.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_basic_geometry_operations.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_bitset.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_box_collision.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_box_set.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_clip_polygon.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_contact.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_geometry.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_geom_types.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_hash_table.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_linear_math.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_math.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_memory.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_radixsort.h" />
+    <ClInclude Include="..\..\..\common\bullet\gim_tri_collision.h" />
+    <ClInclude Include="..\..\..\common\bullet\SphereTriangleDetector.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourAlloc.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourCommon.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourDebugDraw.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourNavMesh.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourNavMeshBuilder.h" />
+    <ClInclude Include="..\..\..\common\detour\DetourNode.h" />
+    <ClInclude Include="..\..\..\common\font.h" />
+    <ClInclude Include="..\..\..\common\gfx.h" />
+    <ClInclude Include="..\..\..\common\light.h" />
+    <ClInclude Include="..\..\..\common\matrix.h" />
+    <ClInclude Include="..\..\..\common\md5.h" />
+    <ClInclude Include="..\..\..\common\memory.h" />
+    <ClInclude Include="..\..\..\common\navigation.h" />
+    <ClInclude Include="..\..\..\common\nvtristrip\NvTriStrip.h" />
+    <ClInclude Include="..\..\..\common\nvtristrip\NvTriStripObjects.h" />
+    <ClInclude Include="..\..\..\common\nvtristrip\VertexCache.h" />
+    <ClInclude Include="..\..\..\common\obj.h" />
+    <ClInclude Include="..\..\..\common\openal\al.h" />
+    <ClInclude Include="..\..\..\common\openal\alAuxEffectSlot.h" />
+    <ClInclude Include="..\..\..\common\openal\alBuffer.h" />
+    <ClInclude Include="..\..\..\common\openal\alc.h" />
+    <ClInclude Include="..\..\..\common\openal\alDatabuffer.h" />
+    <ClInclude Include="..\..\..\common\openal\alEffect.h" />
+    <ClInclude Include="..\..\..\common\openal\alError.h" />
+    <ClInclude Include="..\..\..\common\openal\alext.h" />
+    <ClInclude Include="..\..\..\common\openal\alFilter.h" />
+    <ClInclude Include="..\..\..\common\openal\alListener.h" />
+    <ClInclude Include="..\..\..\common\openal\alMain.h" />
+    <ClInclude Include="..\..\..\common\openal\alSource.h" />
+    <ClInclude Include="..\..\..\common\openal\alState.h" />
+    <ClInclude Include="..\..\..\common\openal\alThunk.h" />
+    <ClInclude Include="..\..\..\common\openal\alu.h" />
+    <ClInclude Include="..\..\..\common\openal\bs2b.h" />
+    <ClInclude Include="..\..\..\common\openal\config.h" />
+    <ClInclude Include="..\..\..\common\openal\efx-creative.h" />
+    <ClInclude Include="..\..\..\common\openal\efx.h" />
+    <ClInclude Include="..\..\..\common\png\png.h" />
+    <ClInclude Include="..\..\..\common\png\pngconf.h" />
+    <ClInclude Include="..\..\..\common\program.h" />
+    <ClInclude Include="..\..\..\common\recast\DebugDraw.h" />
+    <ClInclude Include="..\..\..\common\recast\Recast.h" />
+    <ClInclude Include="..\..\..\common\recast\RecastAlloc.h" />
+    <ClInclude Include="..\..\..\common\recast\RecastDebugDraw.h" />
+    <ClInclude Include="..\..\..\common\recast\RecastDump.h" />
+    <ClInclude Include="..\..\..\common\recast\RecastLog.h" />
+    <ClInclude Include="..\..\..\common\recast\RecastTimer.h" />
+    <ClInclude Include="..\..\..\common\shader.h" />
+    <ClInclude Include="..\..\..\common\sound.h" />
+    <ClInclude Include="..\..\..\common\texture.h" />
+    <ClInclude Include="..\..\..\common\thread.h" />
+    <ClInclude Include="..\..\..\common\types.h" />
+    <ClInclude Include="..\..\..\common\utils.h" />
+    <ClInclude Include="..\..\..\common\vector.h" />
+    <ClInclude Include="..\..\..\common\vorbis\backends.h" />
+    <ClInclude Include="..\..\..\common\vorbis\bitrate.h" />
+    <ClInclude Include="..\..\..\common\vorbis\codebook.h" />
+    <ClInclude Include="..\..\..\common\vorbis\codec.h" />
+    <ClInclude Include="..\..\..\common\vorbis\codec_internal.h" />
+    <ClInclude Include="..\..\..\common\vorbis\envelope.h" />
+    <ClInclude Include="..\..\..\common\vorbis\highlevel.h" />
+    <ClInclude Include="..\..\..\common\vorbis\lookup.h" />
+    <ClInclude Include="..\..\..\common\vorbis\lookup_data.h" />
+    <ClInclude Include="..\..\..\common\vorbis\lpc.h" />
+    <ClInclude Include="..\..\..\common\vorbis\lsp.h" />
+    <ClInclude Include="..\..\..\common\vorbis\masking.h" />
+    <ClInclude Include="..\..\..\common\vorbis\mdct.h" />
+    <ClInclude Include="..\..\..\common\vorbis\misc.h" />
+    <ClInclude Include="..\..\..\common\vorbis\ogg.h" />
+    <ClInclude Include="..\..\..\common\vorbis\os.h" />
+    <ClInclude Include="..\..\..\common\vorbis\os_types.h" />
+    <ClInclude Include="..\..\..\common\vorbis\psy.h" />
+    <ClInclude Include="..\..\..\common\vorbis\registry.h" />
+    <ClInclude Include="..\..\..\common\vorbis\scales.h" />
+    <ClInclude Include="..\..\..\common\vorbis\smallft.h" />
+    <ClInclude Include="..\..\..\common\vorbis\vorbisenc.h" />
+    <ClInclude Include="..\..\..\common\vorbis\vorbisfile.h" />
+    <ClInclude Include="..\..\..\common\vorbis\window.h" />
+    <ClInclude Include="..\..\..\common\zlib\crc32.h" />
+    <ClInclude Include="..\..\..\common\zlib\crypt.h" />
+    <ClInclude Include="..\..\..\common\zlib\deflate.h" />
+    <ClInclude Include="..\..\..\common\zlib\inffast.h" />
+    <ClInclude Include="..\..\..\common\zlib\inffixed.h" />
+    <ClInclude Include="..\..\..\common\zlib\inflate.h" />
+    <ClInclude Include="..\..\..\common\zlib\inftrees.h" />
+    <ClInclude Include="..\..\..\common\zlib\ioapi.h" />
+    <ClInclude Include="..\..\..\common\zlib\trees.h" />
+    <ClInclude Include="..\..\..\common\zlib\unzip.h" />
+    <ClInclude Include="..\..\..\common\zlib\zconf.h" />
+    <ClInclude Include="..\..\..\common\zlib\zlib.h" />
+    <ClInclude Include="..\..\..\common\zlib\zutil.h" />
+    <ClInclude Include="..\..\templateApp.h" />
+    <ClInclude Include="..\nativewin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\common\bullet\.DS_Store" />
+    <None Include="..\..\..\common\nvtristrip\.DS_Store" />
+    <None Include="..\..\..\common\recast\.DS_Store" />
+    <None Include="..\..\..\common\zlib\.DS_Store" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
