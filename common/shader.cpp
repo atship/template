@@ -43,7 +43,7 @@ as being the original software.
 	
 	\return Return a new SHADER structure pointer.
 */
-SHADER *SHADER_init( char *name, unsigned int type )
+SHADER *SHADER_init(const char *name, unsigned int type )
 {
 	SHADER *shader = ( SHADER * ) calloc( 1, sizeof( SHADER ) );
 
@@ -80,7 +80,7 @@ SHADER *SHADER_free( SHADER *shader )
 	
 	\return Return 1 if the shader code compile successfully, else return 0.
 */
-unsigned char SHADER_compile( SHADER *shader, const char *code, unsigned char debug )
+unsigned char SHADER_compile( SHADER *shader, char *code, unsigned char debug )
 {
 	char type[ MAX_CHAR ] = {""};
 	
@@ -91,7 +91,7 @@ unsigned char SHADER_compile( SHADER *shader, const char *code, unsigned char de
 	
 	shader->sid = glCreateShader( shader->type );
 	
-    glShaderSource( shader->sid, 1, &code, NULL );
+    glShaderSource( shader->sid, 1, (const char**)&code, NULL );
 	
     glCompileShader( shader->sid );
     

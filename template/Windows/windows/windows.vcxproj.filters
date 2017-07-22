@@ -1629,5 +1629,11 @@
     </None>
     <None Include="..\..\..\common\bullet\.DS_Store" />
     <None Include="..\..\..\common\nvtristrip\.DS_Store" />
+    <None Include="..\..\Resources\color.frag">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\Resources\color.vert">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

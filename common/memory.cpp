@@ -46,7 +46,7 @@ as being the original software.
 */
 MEMORY *mopen( char *filename, unsigned char relative_path )
 {
-	#ifdef __IPHONE_4_0
+	#if __IPHONE_4_0 || _WIN32
 
 		FILE *f;
 		
@@ -54,8 +54,11 @@ MEMORY *mopen( char *filename, unsigned char relative_path )
 		
 		if( relative_path )
 		{
-			get_file_path( getenv( "FILESYSTEM" ), fname );
-			
+#if _WIN32
+			get_file_path("../../Resources/", fname);
+#else
+			get_file_path(getenv("FILESYSTEM"), fname);
+#endif
 			strcat( fname, filename );
 		}
 		else strcpy( fname, filename );

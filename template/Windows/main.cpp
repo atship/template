@@ -47,7 +47,7 @@ void OnNativeWinResize(int width, int height)
     {
         ctx.nWindowWidth = width;
         ctx.nWindowHeight = height;
-        glViewport(0, 0, width, height);
+        //glViewport(0, 0, width, height);
     }
 }
 
@@ -183,7 +183,7 @@ EGLBoolean Setup(esContext &ctx)
     ctx.nativeWin = nativeWin;
 
     // make sure an initial resize event is provided to the application
-    OnNativeWinResize(640, 480);
+    //OnNativeWinResize(640, 480);
     
     return GL_TRUE;
 }
@@ -205,9 +205,8 @@ int main(int argc, char** argv)
     // main loop
     while (UpdateNativeWin(ctx.nativeDisplay, ctx.nativeWin))
     {
-        // render the model
-        //Render(ctx);
 		templateApp.Draw();
+		eglSwapBuffers(ctx.eglDisplay, ctx.eglSurface);
     }
 
     eglMakeCurrent(EGL_NO_DISPLAY, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);

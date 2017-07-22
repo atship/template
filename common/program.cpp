@@ -43,7 +43,7 @@ as being the original software.
 	
 	\return Return a new PROGRAM structure pointer.
 */
-PROGRAM *PROGRAM_init( char *name )
+PROGRAM *PROGRAM_init( const char *name )
 {
 	PROGRAM *program = ( PROGRAM * ) calloc( 1, sizeof( PROGRAM ) );
 

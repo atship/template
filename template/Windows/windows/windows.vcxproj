@@ -676,6 +676,8 @@
     <None Include="..\..\..\common\nvtristrip\.DS_Store" />
     <None Include="..\..\..\common\recast\.DS_Store" />
     <None Include="..\..\..\common\zlib\.DS_Store" />
+    <None Include="..\..\Resources\color.frag" />
+    <None Include="..\..\Resources\color.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

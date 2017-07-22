@@ -107,11 +107,11 @@ typedef struct
 } PROGRAM;
 
 
-PROGRAM *PROGRAM_init( char *name );
+PROGRAM *PROGRAM_init(const char *name );
 
 PROGRAM *PROGRAM_free( PROGRAM *program );
 
-PROGRAM *PROGRAM_create( char *name, char *vertex_shader_filename, char *fragment_shader_filename, unsigned char relative_path, unsigned char debug_shader, PROGRAMBINDATTRIBCALLBACK *programbindattribcallback, PROGRAMDRAWCALLBACK *programdrawcallback );
+PROGRAM *PROGRAM_create(char *name, char *vertex_shader_filename, char *fragment_shader_filename, unsigned char relative_path, unsigned char debug_shader, PROGRAMBINDATTRIBCALLBACK *programbindattribcallback, PROGRAMDRAWCALLBACK *programdrawcallback );
 
 unsigned char PROGRAM_link( PROGRAM *program, unsigned char debug );
 

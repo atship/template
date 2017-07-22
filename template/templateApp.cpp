@@ -55,8 +55,14 @@ TEMPLATEAPP templateApp = {
 						  };
 
 
+PROGRAM* program;
+int WIDTH;
+int HEIGHT;
+
 void templateAppInit( int width, int height )
 {
+	WIDTH = width;
+	HEIGHT = height;
 	// Setup the exit callback function.
 	atexit( templateAppExit );
 	
@@ -67,15 +73,82 @@ void templateAppInit( int width, int height )
 	glViewport( 0, 0, width, height );
 	
 	/* Insert your initialization code here */
+
+	program = PROGRAM_init("DEFAULT");
+	program->fragment_shader = SHADER_init("color.frag", GL_FRAGMENT_SHADER);
+	program->vertex_shader = SHADER_init("color.vert", GL_VERTEX_SHADER);
+
+	MEMORY* m = mopen("color.frag", 1);
+	if (!SHADER_compile(program->fragment_shader, (char*)m->buffer, 1)) {
+		printf("color.frag compile error");
+		exit(1);
+	}
+	mclose(m);
+
+	m = mopen("color.vert", 1);
+	if (!SHADER_compile(program->vertex_shader, (char*)m->buffer, 1)) {
+		printf("color.vert compile error");
+		exit(2);
+	}
+	mclose(m);
+
+	if (!PROGRAM_link(program, 1)) {
+		printf("link error");
+		exit(3);
+	}
 }
 
 
 void templateAppDraw( void )
 {
-	// Clear the depth, stencil and colorbuffer.
-	glClear( GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
-
 	/* Insert your drawing code here */
+	static const float POSITION[8] = {
+		0, 0, 
+		1, 0, 
+		0, 1, 
+		1, 1
+	};
+
+	static const float COLOR[16] = {
+		1, 0, 0, 1,
+		0, 1, 0, 1,
+		0, 0, 1, 1,
+		0, 1, 1, 1
+	};
+
+	glClearColor(1, 0., 0., 1);
+	// Clear the depth, stencil and colorbuffer.
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	GFX_set_matrix_mode(PROJECTION_MATRIX);
+	GFX_load_identity();
+	GFX_set_orthographic_2d(-WIDTH / 2, WIDTH / 2, -HEIGHT / 2, HEIGHT / 2);
+	GFX_translate(-WIDTH / 2, -HEIGHT / 2, 0);
+	glDisable(GL_DEPTH_TEST);
+	glDepthMask(GL_FALSE);
+
+	GFX_set_matrix_mode(MODELVIEW_MATRIX);
+	GFX_load_identity();
+	GFX_scale(100, 100, 0);
+
+	if (program->pid) {
+		char attr, uniform;
+		glUseProgram(program->pid);
+		uniform = PROGRAM_get_uniform_location(program, (char*)"MVP");
+		glUniformMatrix4fv(uniform, 1, GL_FALSE, (float*)GFX_get_modelview_projection_matrix());
+
+		attr = PROGRAM_get_vertex_attrib_location(program, "POSITION");
+		glEnableVertexAttribArray(attr);
+		glVertexAttribPointer(attr, 2, GL_FLOAT, GL_FALSE, 0, POSITION);
+
+		attr = PROGRAM_get_vertex_attrib_location(program, "COLOR");
+		glEnableVertexAttribArray(attr);
+		glVertexAttribPointer(attr, 4, GL_FLOAT, GL_FALSE, 0, COLOR);
+
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	}
+
+	GFX_error();
 }
 
 

@@ -46,11 +46,11 @@ typedef struct
 } SHADER;
 
 
-SHADER *SHADER_init( char *name, unsigned int type );
+SHADER *SHADER_init( const char *name, unsigned int type );
 
 SHADER *SHADER_free( SHADER *shader );
 
-unsigned char SHADER_compile( SHADER *shader, const char *code, unsigned char debug );
+unsigned char SHADER_compile( SHADER *shader, char *code, unsigned char debug );
 
 void SHADER_delete_id( SHADER *shader );
 
