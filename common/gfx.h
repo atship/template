@@ -108,7 +108,7 @@ framework can provide.
 #define GFX_VERSION_PATCH	23
 
 
-#ifdef __IPHONE_4_0
+#ifdef IPHONE
 
 	#include <OpenGLES/ES2/gl.h>
 	#include <OpenGLES/ES2/glext.h>

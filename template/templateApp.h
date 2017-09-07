@@ -28,7 +28,7 @@ as being the original software.
 #ifndef TEMPLATEAPP_H
 #define TEMPLATEAPP_H
 
-#ifdef __IPHONE_4_0
+#ifdef IPHONE
 
 	#include "gfx.h"
 #else

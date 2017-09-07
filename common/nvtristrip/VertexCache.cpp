@@ -2,14 +2,13 @@
 
 #include "VertexCache.h"
 
-/*
+
 VertexCache::VertexCache()
 {
   VertexCache(16);
 }
-*/
 
-VertexCache::VertexCache(int size=16)
+VertexCache::VertexCache(int size)
 {
   numEntries = size;
 
