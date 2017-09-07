@@ -11,7 +11,8 @@
 * ant release
 
 ## iOS
-* unknown becuase I have no MAC book.
+* open template/iOS/templateApp.xcodeproj with xcode
+* compile and run
 
 ## Write Codes
 * draw and touch events are handled in file templateApp.c, so you can write any opengl es codes in that file.
